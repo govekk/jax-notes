@@ -1,0 +1,41 @@
+# Talking points
+- Overview of IDR's setup
+    - IDR 
+        - EBI provides money for infrastructure - stack & storage - kept asking for more and more NFS
+        - Still exploring object storage
+        - Lots archived, as much cold storage as possible
+    - On-prem or cloud object storage, run though what provider?
+        - on-prem cold and s3-like cache 
+    - What do you use for POSIX layer? 
+        - goofys - what EBI told IDR to use because what EBI was using internally
+        - second version late 2022 - bucket in EBI s3-like storage that works as faster cache than cold storage
+            https://docs.embassy.ebi.ac.uk/userguide/Embassyv4.html#s3-object-store
+    - Where is the POSIX layer in the Omero server? Using symlinks from Managed Repository or actually replacing?
+        - only using in-place imports (`--transfer ln_s`)
+- Issue is omero still expects data to be *there* in file system. Even worse when symlinks. Repeat access but don't know latency of accessing data
+- What else have you tested?
+    - goofys - worked ok as fuse mount to view files, not great as back end to omero?
+    - `command: /opt/goofys --endpoint https://uk1s3.embassy.ebi.ac.uk/ -o allow_other bia-idr-integration /bia-idr` - run as *root*
+- Do you run with a read-only server? How does it interact with read-only?
+    - TODO: might change if managed repo is local/nfs?
+    - `echo 3 | sudo tee /proc/sys/vm/drop_caches` simulates first run access of goofys so caching doesn't result in different timings
+- How does it affect import and load times?
+    - Have you tested import? - yes, with .tif files, and it works
+        - Only tested `--transfer ln_s`
+        - TODO: I should test this again, because ideally if managed repo is local not mounted, should not be writing to goofys mount to import 
+    - Zarr in general doesn't work well with omero imports because omero doesn't like that many files
+        - Will and Josh hacking around omero import with zarr - just import metadata files, internally symlink chunks
+- side note: IDR nginx has caching??
+- https://github.com/IDR/deployment/issues/389 
+- TODO: post or joint post on image.sc about our testing and where we and IDR are arriving at outcomes for object storage backend for omero
+    - maybe after our JAX meeting this week
+    - maybe Seb will write a few paragraphs on what IDR has done - tag Seb in post?
+    - connection with Zarr (Seb less directly involved)
+- Can mount diff object storage - but beware of where it is in the world - creating thumbnails from binary coming from US to London takes forever
+- What is in it for end user? What can they do with object storage that they couldn't do before?
+    - Mostly right now just lowers costs at expense of maybe some slight slow down
+- Will need to be more careful about backups? Even worse than file system where if data gets moved/changed/deleted, it might get lost
+- Would be nice to have a checklist of everything need to have to say "that's a suitable replacement" for times when we want to change implementation
+- Side note: once we have template for omero in cloud, much easier to make flexible servers for diff use cases and sharing at JAX
+    - Never provide users with ability to import own data (always they send it to us?) except amazon open data idea?
+- Seb is Glencoe now, not Open Microscopy? No longer University of Dundee.

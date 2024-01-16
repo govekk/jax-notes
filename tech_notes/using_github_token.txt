@@ -1,0 +1,9 @@
+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
+
+git clone --recursive https://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@github.com/TheJacksonLaboratory/jax-omero.git
+
+git clone https://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@github.com/TheJacksonLaboratory/jax-gcp-omero
+
+git clone --recursive https://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@github.com/TheJacksonLaboratory/ezomero.git
+
+git clone https://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@github.com/govekk/simple-k8s-omero

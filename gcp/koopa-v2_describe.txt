@@ -1,0 +1,208 @@
+addonsConfig:
+  dnsCacheConfig:
+    enabled: true
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  gcpFilestoreCsiDriverConfig:
+    enabled: true
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+autopilot:
+  enabled: true
+autoscaling:
+  autoprovisioningNodePoolDefaults:
+    imageType: COS_CONTAINERD
+    management:
+      autoRepair: true
+      autoUpgrade: true
+    oauthScopes:
+    - https://www.googleapis.com/auth/devstorage.read_only
+    - https://www.googleapis.com/auth/logging.write
+    - https://www.googleapis.com/auth/monitoring
+    - https://www.googleapis.com/auth/service.management.readonly
+    - https://www.googleapis.com/auth/servicecontrol
+    - https://www.googleapis.com/auth/trace.append
+    serviceAccount: default
+    upgradeSettings:
+      maxSurge: 1
+      strategy: SURGE
+  autoscalingProfile: OPTIMIZE_UTILIZATION
+  enableNodeAutoprovisioning: true
+  resourceLimits:
+  - maximum: '1000000000'
+    resourceType: cpu
+  - maximum: '1000000000'
+    resourceType: memory
+  - maximum: '1000000000'
+    resourceType: nvidia-tesla-t4
+  - maximum: '1000000000'
+    resourceType: nvidia-tesla-a100
+clusterIpv4Cidr: 10.186.0.0/17
+createTime: '2023-01-09T18:46:33+00:00'
+currentMasterVersion: 1.24.10-gke.2300
+currentNodeCount: 3
+currentNodeVersion: 1.24.10-gke.2300
+databaseEncryption:
+  state: DECRYPTED
+defaultMaxPodsConstraint:
+  maxPodsPerNode: '110'
+endpoint: 172.16.6.2
+etag: 92ceb35a-3499-4fee-9bec-3c785bc20a12
+id: 9ce37bb7f95149978a517716ec5aadfc82372857392643f9a1e96930d8448451
+initialClusterVersion: 1.24.7-gke.900
+instanceGroupUrls:
+- https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-b/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-0d318865-grp
+- https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-c/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-8e7d6ab9-grp
+- https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-d/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-ff2a9bca-grp
+ipAllocationPolicy:
+  clusterIpv4Cidr: 10.186.0.0/17
+  clusterIpv4CidrBlock: 10.186.0.0/17
+  clusterSecondaryRangeName: gke-koopa-v2-pods-9ce37bb7
+  podCidrOverprovisionConfig: {}
+  servicesIpv4Cidr: 10.186.128.0/22
+  servicesIpv4CidrBlock: 10.186.128.0/22
+  servicesSecondaryRangeName: gke-koopa-v2-services-9ce37bb7
+  stackType: IPV4
+  useIpAliases: true
+labelFingerprint: a9dc16a7
+legacyAbac: {}
+location: us-east1
+locations:
+- us-east1-b
+- us-east1-c
+- us-east1-d
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+loggingService: logging.googleapis.com/kubernetes
+maintenancePolicy:
+  resourceVersion: e3b0c442
+masterAuth:
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQU1vaEZzS24wc3U4WWpIOFhCeU1mNE13RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa00yTmhNek5sTkRrdFl6WmlNQzAwWlRGa0xXSm1aVEV0WVRWalltRmhZelkzTVdSawpNQ0FYRFRJek1ERXdPVEUzTkRZek5Gb1lEekl3TlRNd01UQXhNVGcwTmpNMFdqQXZNUzB3S3dZRFZRUURFeVF6ClkyRXpNMlUwT1Mxak5tSXdMVFJsTVdRdFltWmxNUzFoTldOaVlXRmpOamN4WkdRd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FESFQyMVU1UjB5dzdpVld6OTBQRjYvNWN0dEd0OTVCcHFUQ3FnTwo5MzNraStxbkFWWVpYdEUzWWFDbmxKYUk0cjJHNFpnZEE3Tk1ic2R4eDdjZVF5YWhrby8xOE1GUE5MdVgreWRMCmNSajNIblhmWm1JZFhCaFhjSmpUT1FOV2cyMC90RDU3RE1XamI2OGlkbkhOY2VIVC92VFJmeGZRY1RubTg0NUoKZVkvNWgxVUtnSEhodlRUaUN1aUZUVktUdlRPTHBhKzN4aG9ENnlINXpWeExIRDl4OTZkMlBWamdQeW80STJKdApFQVR4TVlvNVlYWUQ3OC92YU9wYjhXbG4rdno3TlozWE5hUEF6dU9GbGcwRVNGS1ROYlhidlg3WHRMVVo4bVRqCkMyelR5ZE96QzUxZUJrWjYySjFtMnNzYlBJVDJVbnI0VnpRa2VvNVNzSjA2MGFBM3krVFF3OGtxeHlwTlNyT1EKNGhJRnNHRFZ6RTF3cmNmcFdLLzY2QU5FbklMd01FelpibVdERFJGeGZJQmVxcTR5ZjBmdVpiWloxUG9uZEVYOQpKNjUxdVNJWFJEMHFya2dMVldsVXIxRFNwN3lWMWJocWtVclZoMlBvRWJocGZmLzFpU01mNm1OcVJUK1Zydk9sClBWTzIzNS9ySENoUm9KQnh3YzdhYkswM0E1c0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGSnkzbWF2V2hIZmJkWSt4ZWJrelhLMDU0amV5TUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ1pTRk9UMUgyQ2d0RlBoSlB6b3c0R09sSUVOVkdTVGVMU1Z0SHduOTV6CkNPYk1wK1oycTlneURscDlSdkQzQnJRS2hvb0RKOTRHY05kVjkwUW8wOFhiK3VUa3EwdlpmY1BZN2orQVVWN3gKcUgwNHhNaE0xOURvV1ByTFlQMkVYeEhhUEVGRzJEMkdOM3BZdDNBZ0JvUmZWTTgyTHNoWUp6RU5vWXlWSi9aSgp4QUZZc1JVZWRFSU9UR1VwN2luYlNQc2NIN295Q2loMkN2ZGpiN1gyVTFibUJLcGk1TUgyLzF3T0crQnF0OXg3CjZINFdHMXp6OVZ2Smg0dDYxVGN2QnFzcGpVVHJXWit6bUZER25VTVpYd2FYeUhFQ01CYlYvZGpLM1V4dWE3ckkKTVh5VmZtVi9WL3BWWVZpcjVSeGNqV0FPbnVnanVOc280SGxKQTBPUFg3WTl5UkdtQzlFRWQrbHFPM0ZReGFwQgpFUFlLS2RjdVlMVCtPWnFLeXdFMVBiYVF1Z2RsWklUeFIydGM1ZkFiS09hNENrWXhkVDZXV0FvOU93ckh1TEF0CkFsWjhQdm0yMTY1cEEzd2JKQ2hyaDFFWjYwZ21XOGJtVzU3VXFqZXh2S3J1TzAyVUdvUG5CYmJiUVRaNXBOUU0KZUdtUWxRaEU1T0ZjeklmZ3JQQVRxdEE9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+masterAuthorizedNetworksConfig:
+  cidrBlocks:
+  - cidrBlock: 172.20.200.2/32
+  enabled: true
+monitoringConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+monitoringService: monitoring.googleapis.com/kubernetes
+name: koopa-v2
+network: jax-omero-pub-vpc
+networkConfig:
+  datapathProvider: ADVANCED_DATAPATH
+  enableIntraNodeVisibility: true
+  network: projects/jax-omero-pub/global/networks/jax-omero-pub-vpc
+  serviceExternalIpsConfig: {}
+  subnetwork: projects/jax-omero-pub/regions/us-east1/subnetworks/jax-omero-pub-internal
+nodeConfig:
+  diskSizeGb: 100
+  diskType: pd-standard
+  imageType: COS_CONTAINERD
+  machineType: e2-highcpu-16
+  metadata:
+    disable-legacy-endpoints: 'true'
+  oauthScopes:
+  - https://www.googleapis.com/auth/devstorage.read_only
+  - https://www.googleapis.com/auth/logging.write
+  - https://www.googleapis.com/auth/monitoring
+  - https://www.googleapis.com/auth/service.management.readonly
+  - https://www.googleapis.com/auth/servicecontrol
+  - https://www.googleapis.com/auth/trace.append
+  reservationAffinity:
+    consumeReservationType: NO_RESERVATION
+  serviceAccount: default
+  shieldedInstanceConfig:
+    enableIntegrityMonitoring: true
+    enableSecureBoot: true
+  windowsNodeConfig: {}
+  workloadMetadataConfig:
+    mode: GKE_METADATA
+nodePoolAutoConfig: {}
+nodePoolDefaults:
+  nodeConfigDefaults:
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+nodePools:
+- autoscaling:
+    autoprovisioned: true
+    enabled: true
+    locationPolicy: BALANCED
+    maxNodeCount: 1000
+  config:
+    diskSizeGb: 100
+    diskType: pd-standard
+    imageType: COS_CONTAINERD
+    machineType: e2-highcpu-16
+    metadata:
+      disable-legacy-endpoints: 'true'
+    oauthScopes:
+    - https://www.googleapis.com/auth/devstorage.read_only
+    - https://www.googleapis.com/auth/logging.write
+    - https://www.googleapis.com/auth/monitoring
+    - https://www.googleapis.com/auth/service.management.readonly
+    - https://www.googleapis.com/auth/servicecontrol
+    - https://www.googleapis.com/auth/trace.append
+    reservationAffinity:
+      consumeReservationType: NO_RESERVATION
+    serviceAccount: default
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: eb32aeb4-f520-466a-9c25-2e17bb6d2a7b
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-b/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-0d318865-grp
+  - https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-c/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-8e7d6ab9-grp
+  - https://www.googleapis.com/compute/v1/projects/jax-omero-pub/zones/us-east1-d/instanceGroupManagers/gk3-koopa-v2-nap-1n60swbx-ff2a9bca-grp
+  locations:
+  - us-east1-b
+  - us-east1-c
+  - us-east1-d
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '32'
+  name: nap-1n60swbx
+  networkConfig:
+    podIpv4CidrBlock: 10.186.0.0/17
+    podRange: gke-koopa-v2-pods-9ce37bb7
+  placementPolicy: {}
+  podIpv4CidrSize: 26
+  selfLink: https://container.googleapis.com/v1/projects/jax-omero-pub/locations/us-east1/clusters/koopa-v2/nodePools/nap-1n60swbx
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.24.10-gke.2300
+notificationConfig:
+  pubsub: {}
+privateClusterConfig:
+  enablePrivateEndpoint: true
+  enablePrivateNodes: true
+  masterIpv4CidrBlock: 172.16.6.0/28
+  peeringName: gke-ne63fbaaac1668417549-78b4-1661-peer
+  privateEndpoint: 172.16.6.2
+  publicEndpoint: 34.148.187.106
+releaseChannel:
+  channel: REGULAR
+selfLink: https://container.googleapis.com/v1/projects/jax-omero-pub/locations/us-east1/clusters/koopa-v2
+servicesIpv4Cidr: 10.186.128.0/22
+shieldedNodes:
+  enabled: true
+status: RUNNING
+subnetwork: jax-omero-pub-internal
+verticalPodAutoscaling:
+  enabled: true
+workloadIdentityConfig:
+  workloadPool: jax-omero-pub.svc.id.goog
+zone: us-east1

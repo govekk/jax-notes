@@ -1,0 +1,1 @@
+`sudo sed -i '' -e "s/true/false/g" /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist`
